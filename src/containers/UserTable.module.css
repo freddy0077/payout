@@ -1,0 +1,32 @@
+
+/* Add this CSS to your existing CSS file or create a new one and import it in the PayoutWizard.tsx */
+.tables-container {
+    max-height: 50vh;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.table-container {
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
