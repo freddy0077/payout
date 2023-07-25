@@ -18,7 +18,7 @@ const Start = () => {
     const [values, setValues] = useState([]);
     const [drawNumber, setDrawNumber] = useState(null);
     const [dataLoaded, setDataLoaded] = useState(false);
-    const {drawResults,winnings, loading, error}  = useSelector((x) => x.tickets);
+    const {drawResults,winnings, loading, error}  = useSelector((state) => state.tickets);
     const [sumWinnings, setSumWinnings] = useState(0)
 
     const dispatch = useDispatch();
@@ -51,9 +51,9 @@ const Start = () => {
     const makePayments = (serial_number) => {
         dispatch(ticketActions.makePayment(serial_number)).then((res) => {
             if (res?.type?.includes( "fulfilled")){
-                // setTimeout(() => {
-                //     navigate(0)
-                // },2000)
+                setTimeout(() => {
+                    dispatch(ticketActions.getWinnings(drawNumber))
+                },2000)
             }
         })
     }
